@@ -3,12 +3,12 @@ package Model;
 public class Gracz {
 	
 	private int iloscPunktow;
-	private int czyMozeGrac;
+	private boolean czyMozeGrac;
 	
 	public Gracz()
 	{
 		iloscPunktow = 0;
-		czyMozeGrac = 1;
+		czyMozeGrac = true;
 	}
 	
 	public int getIloscPunktow()
@@ -16,7 +16,7 @@ public class Gracz {
 		return iloscPunktow;
 	}
 	
-	public int czyMozeGrac()
+	public boolean czyMozeGrac()
 	{
 		return czyMozeGrac;
 	}
@@ -26,8 +26,9 @@ public class Gracz {
 		iloscPunktow = argument;
 	}
 	
-	public void setCzyMozeGrac(int argument) // 1 oznacza ze moze grac | 0 oznacza ze nie moze grac
+	public void setCzyMozeGrac(boolean argument) // 1 oznacza ze moze grac | 0 oznacza ze nie moze grac
 	{
 		czyMozeGrac = argument;
 	}
 }
+
