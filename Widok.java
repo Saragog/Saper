@@ -5,14 +5,27 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
-public class Widok extends JFrame// implements ActionListener
+public class Widok extends JFrame
 {
 
 	private mojJButton[] przyciski;
 	private int ilePoziomo;
 	private int ilePionowo;
 
+	private ImageIcon mina1;
+	private ImageIcon mina2;
+	private ImageIcon mina3;
+	private ImageIcon mina4;
+	private ImageIcon mina5;
+	private ImageIcon mina6;
+	private ImageIcon mina7;
+	private ImageIcon mina8;
+	private ImageIcon minawybucha;
+	private ImageIcon minapuste;
+	
+	
 	public Widok()				// konstruktor domyslny
 	{
 		setSize(200,229); // poziomo | pionowo     | ramka na gorze zajmuje doklanie 29 jednostek
@@ -42,6 +55,18 @@ public class Widok extends JFrame// implements ActionListener
 			}
 			x = 0;
 		}
+		pack();
+		mina1 = new ImageIcon(getClass().getResource("mina1.jpg"));
+		mina2 = new ImageIcon(getClass().getResource("mina2.jpg"));
+		mina3 = new ImageIcon(getClass().getResource("mina3.jpg"));
+		mina4 = new ImageIcon(getClass().getResource("mina4.jpg"));
+		mina5 = new ImageIcon(getClass().getResource("mina5.jpg"));
+		mina6 = new ImageIcon(getClass().getResource("mina6.jpg"));
+		mina7 = new ImageIcon(getClass().getResource("mina7.jpg"));
+		mina8 = new ImageIcon(getClass().getResource("mina8.jpg"));
+		minawybucha = new ImageIcon(getClass().getResource("minawybucha.jpg"));
+		minapuste = new ImageIcon(getClass().getResource("minapuste.jpg"));
+		
 	}
 	public Widok(int ileK, int ileS)	// ile Kolumn ile Szeregow
 	{
@@ -73,6 +98,17 @@ public class Widok extends JFrame// implements ActionListener
 			x = 0;
 		}
 		
+		mina1 = new ImageIcon(getClass().getResource("mina1.jpg"));
+		mina2 = new ImageIcon(getClass().getResource("mina2.jpg"));
+		mina3 = new ImageIcon(getClass().getResource("mina3.jpg"));
+		mina4 = new ImageIcon(getClass().getResource("mina4.jpg"));
+		mina5 = new ImageIcon(getClass().getResource("mina5.jpg"));
+		mina6 = new ImageIcon(getClass().getResource("mina6.jpg"));
+		mina7 = new ImageIcon(getClass().getResource("mina7.jpg"));
+		mina8 = new ImageIcon(getClass().getResource("mina8.jpg"));
+		minawybucha = new ImageIcon(getClass().getResource("minawybucha.jpg"));
+		minapuste = new ImageIcon(getClass().getResource("minapuste.jpg"));
+		
 	}
 
 	public void AktualizujWidok(int [] tablicaZawartosci,int[] tablicaOdsloniec)
@@ -97,52 +133,63 @@ public class Widok extends JFrame// implements ActionListener
 			{
 				case 1:										// 1 mina wokol
 				{
-					nowyLabel = new JLabel("    1   ");
+					nowyLabel = new JLabel(mina1);
+					//pack();
+					//nowyLabel = new JLabel("    1   ");
 					break;
 				}
 				case 2:										// 2 miny wokol
 				{
-					nowyLabel = new JLabel("    2   ");
+					nowyLabel = new JLabel(mina2);
+					//nowyLabel = new JLabel("    2   ");
 					break;
 				}
 				case 3:										// 3 miny wokol
 				{
-					nowyLabel = new JLabel("    3   ");
+					nowyLabel = new JLabel(mina3);
+					//nowyLabel = new JLabel("    3   ");
 					break;
 				}
 				case 4:										// 4 miny wokol
 				{
-					nowyLabel = new JLabel("    4   ");
+					nowyLabel = new JLabel(mina4);
+					//nowyLabel = new JLabel("    4   ");
 					break;
 				}
 				case 5:										// 5 min wokol
 				{
-					nowyLabel = new JLabel("    5   ");
+					nowyLabel = new JLabel(mina5);
+					//nowyLabel = new JLabel("    5   ");
 					break;
 				}
 				case 6:										// 6 min wokol
 				{
-					nowyLabel = new JLabel("    6   ");
+					nowyLabel = new JLabel(mina6);
+					//nowyLabel = new JLabel("    6   ");
 					break;
 				}
 				case 7:										// 7 min wokol
 				{
-					nowyLabel = new JLabel("    7   ");
+					nowyLabel = new JLabel(mina7);
+					//nowyLabel = new JLabel("    7   ");
 					break;
 				}
 				case 8:										// 8 min wokol
 				{
-					nowyLabel = new JLabel("    8   ");
+					nowyLabel = new JLabel(mina8);
+					//nowyLabel = new JLabel("    8   ");
 					break;
 				}
 				case 9:										// pole jest mina
 				{
-					nowyLabel = new JLabel("    M   ");
+					nowyLabel = new JLabel(minawybucha);
+					//nowyLabel = new JLabel("    M   ");
 					break;
 				}
 				default:										// pole jest puste
 				{
-					nowyLabel = new JLabel("    P   ");
+					nowyLabel = new JLabel(minapuste);
+					//nowyLabel = new JLabel("    P   ");
 				}
 			}
 			
