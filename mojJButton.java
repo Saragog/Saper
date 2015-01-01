@@ -23,3 +23,4 @@ public class mojJButton extends JButton
 		return numerPola;
 	}
 }
+
