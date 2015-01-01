@@ -25,6 +25,9 @@ public class Plansza {
 		iloscSzeregow = 5;
 		rozmiarPlanszy = 25;
 		iloscMin = 10;
+		
+		iloscPustychPol = rozmiarPlanszy - iloscMin;
+		
 		pola = new Pole[rozmiarPlanszy];
 		for (int x = 0; x < rozmiarPlanszy; x++)
 		{
@@ -49,6 +52,9 @@ public class Plansza {
 		iloscSzeregow = ileS;
 		iloscMin = ileMin;
 		rozmiarPlanszy = ileK * ileS;
+		
+		iloscPustychPol = rozmiarPlanszy - iloscMin;
+		
 		pola = new Pole[rozmiarPlanszy];
 		for (int x = 0; x < rozmiarPlanszy; x++)
 		{
@@ -108,6 +114,19 @@ public class Plansza {
 	 * 
 	 */
 	
+	
+	public boolean SprawdzCzyMoznaGrac ()
+	{
+		// potem dla wielu graczy
+		
+		if (grajacy.czyMozeGrac())
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	
 	public void OdslonPole(int numerPola/*, Gracz grajacy*/)			// metoda odslaniajaca pole i dajaca graczowi odpowiednia ilosc punktow
 	{
 		
@@ -118,11 +137,16 @@ public class Plansza {
 			{
 				System.out.println("Odslaniam pole nr.: " + numerPola);
 
-				
+				iloscPustychPol--;
 				pola[numerPola].setCzyOdsloniete(true);				
 				
 				doOdsloniecia[numerPola] = true;
 				ileOdslonic++;
+				
+				if (iloscPustychPol == 0)	// skonczyla sie liczba pol do odsloniecia niebedaca minami
+				{
+					grajacy.setCzyMozeGrac(false);
+				}
 				
 				int zawartosc = pola[numerPola].getCoZawiera();
 				
@@ -154,7 +178,7 @@ public class Plansza {
 				}
 				else	// zawartosc == 9 wiec mina
 				{
-					grajacy.setCzyMozeGrac(0);
+					grajacy.setCzyMozeGrac(false);
 					return;
 				}		
 			}
@@ -199,6 +223,16 @@ public class Plansza {
 				pola[x].setCoZawiera(zawartosc);
 			}
 		}
+	}
+	
+	public int getiloscgraczy()
+	{
+		return 1;
+	}
+	
+	public int getwynik()
+	{
+		return grajacy.getIloscPunktow();
 	}
 	
 	public int getIloscKolumn()
@@ -272,6 +306,13 @@ public class Plansza {
 
 		return ktoreOdsloniete;
 	}
+	
+	public int DajIloscPunktowGracza(int numerGracza)		// potem bede dawal numer gracza
+	{
+		return grajacy.getIloscPunktow();
+	}
+	
+	
 	
 	
 // *****************************************************************************************
